@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Resources\Views\home;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,7 @@ class AdminController extends Controller
             $usertype = Auth::user()->usertype;
 
             if ($usertype == 'user') {
-                return view('dashboard');
+                return view('home.index');
             } else if ($usertype == 'admin') {
                 return view('admin.index');
             } else {

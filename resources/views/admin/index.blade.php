@@ -1,21 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title></title>
+    @include('admin.css');
 </head>
 
 <body>
-
-    <x-app-layout>
-
-    </x-app-layout>
-
-
-
+    @include('admin.header');
+    <div class="d-flex align-items-stretch">
+        <!-- Sidebar Navigation-->
+        @include('admin.sidebar');
+        <!-- Sidebar Navigation end-->
+        @include('admin.content');
+    </div>
+    <!-- JavaScript files-->
+    @include('admin.footer');
 </body>
 
 </html>

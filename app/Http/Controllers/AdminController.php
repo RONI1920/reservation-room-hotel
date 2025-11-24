@@ -8,6 +8,9 @@ use Resources\Views\home;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Models\Room;
+use Illuminate\Support\Facades\Redirect;
+
 class AdminController extends Controller
 {
     //
@@ -15,7 +18,6 @@ class AdminController extends Controller
     {
         if (Auth::id()) {
             $usertype = Auth::user()->usertype;
-
             if ($usertype == 'user') {
                 return view('home.index');
             } else if ($usertype == 'admin') {
@@ -29,5 +31,25 @@ class AdminController extends Controller
     public function home()
     {
         return view('home.index');
+    }
+
+    public function create_room()
+    {
+        return view('admin.create_room');
+    }
+    public function add_room(Request $request)
+    {
+        $data = new Room();
+
+        $data->room_title = $request->room_title;
+        $data->description = $request->description;
+        $data->price = $request->price;
+        $data->image = $request->image;
+        $data->Wifi = $request->Wifi;
+        $data->room_type = $request->room_type;
+
+        $data->save();
+
+        return Redirect()->back();
     }
 }

@@ -60,8 +60,8 @@
                             </div>
 
                             <div class="div_deg">
-                                <label> Free Wifi</label>
-                                <select name="Wifi">
+                                <label> Free wifi</label>
+                                <select name="wifi">
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>

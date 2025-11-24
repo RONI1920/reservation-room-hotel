@@ -2,19 +2,19 @@
 <html>
 
 <head>
-    @include('admin.css');
+    @include('admin.css')
 </head>
 
 <body>
-    @include('admin.header');
+    @include('admin.header')
     <div class="d-flex align-items-stretch">
         <!-- Sidebar Navigation-->
-        @include('admin.sidebar');
+        @include('admin.sidebar')
         <!-- Sidebar Navigation end-->
-        @include('admin.content');
+        @include('admin.content')
     </div>
     <!-- JavaScript files-->
-    @include('admin.footer');
+    @include('admin.footer')
 </body>
 
 </html>

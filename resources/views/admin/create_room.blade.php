@@ -46,11 +46,6 @@
                             </div>
 
                             <div class="div_deg">
-                                <label> Description</label>
-                                <textarea name="description"></textarea>
-                            </div>
-
-                            <div class="div_deg">
                                 <label> Price</label>
                                 <input type="number" name="price">
                             </div>
@@ -70,6 +65,11 @@
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
+                            </div>
+
+                            <div class="div_deg">
+                                <label> Description</label>
+                                <textarea name="description"></textarea>
                             </div>
 
                             <div class="div_deg">

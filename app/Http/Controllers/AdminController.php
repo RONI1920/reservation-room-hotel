@@ -58,7 +58,7 @@ class AdminController extends Controller
         $data->save();
 
 
-        return Redirect()->back();
+        return Redirect('/view_room');
     }
 
     public function view_room()
@@ -67,5 +67,46 @@ class AdminController extends Controller
         $data = Room::all();
 
         return view('admin.view_room', compact('data'));
+    }
+
+    public function room_delete($id)
+    {
+        $data = Room::find($id);
+
+        $data->delete();
+
+        return Redirect()->back();
+    }
+
+    public function room_update($id)
+    {
+
+        $data = Room::find($id);
+
+        return view('admin.room_update', compact('data'));
+    }
+
+    public function edit_room(Request $request, $id)
+    {
+        $data = Room::find($id);
+
+        $data->room_title = $request->room_title;
+        $data->price = $request->price;
+        $data->wifi = $request->wifi;
+        $data->description = $request->description;
+        $data->room_type = $request->room_type;
+
+        $image = $request->image;
+
+        if ($image) {
+            $imagename = time() . '.' . $image->getClientOriginalExtension();
+            $image->move('room', $imagename);
+
+            $data->image = $imagename;
+        }
+
+        $data->save();
+
+        return redirect('/view_room');
     }
 }

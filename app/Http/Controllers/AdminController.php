@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Resources\Views\home;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -18,19 +17,23 @@ class AdminController extends Controller
     {
         if (Auth::id()) {
             $usertype = Auth::user()->usertype;
+            $room = Room::all();
             if ($usertype == 'user') {
-                return view('home.index');
+                return view('home.index', compact('room'));
             } else if ($usertype == 'admin') {
                 return view('admin.index');
             } else {
                 return redirect()->back();
             }
+            return Redirect('login');
         }
     }
 
     public function home()
     {
-        return view('home.index');
+        $room = Room::all();
+
+        return view('home.index', compact('room'));
     }
 
     public function create_room()
